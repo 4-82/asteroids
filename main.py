@@ -17,8 +17,11 @@ def main():
                 return
 
         screen.fill("#000000")
-        player.draw(screen)
-        player.update(dt)
+
+        for sprite in drawable:
+            sprite.draw(screen)
+
+        updatable.update(dt)
         pygame.display.flip()
         clock.tick(60)
         dt = (clock.tick(60) / 1000)
