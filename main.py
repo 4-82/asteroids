@@ -4,6 +4,8 @@ from player import Player
 
 def main():
     pygame.init()
+    updatable, drawable = pygame.sprite.Group(), pygame.sprite.Group()
+    Player.containers = (updatable, drawable)
     player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
     clock = pygame.time.Clock()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
