@@ -1,6 +1,8 @@
 import pygame
+import sys
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH, PLAYER_RADIUS
 from player import Player
+from circleshape import CircleShape
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 
@@ -27,6 +29,12 @@ def main():
             sprite.draw(screen)
 
         updatable.update(dt)
+
+        for asteroid in asteroids:
+            if asteroid.collision(player):
+                print("Game over!")
+                sys.exit()
+
         pygame.display.flip()
         clock.tick(60)
         dt = (clock.tick(60) / 1000)
